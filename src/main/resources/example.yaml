@@ -1,95 +1,111 @@
 applications:
-  - name: ExampleApp
+  - name: Fenergo
     environments:
-      - name: production
+      - name: int3
         servers:
-          - name: server1
-            ip: 332.10.1.1
-            os: Linux
+          - name: IIS-FRONT-1
+            ip: EUROVIT04484.xmp.net.intra
+            os: windows
             services:
-              - name: iis
+              - name: IIS
                 type: app
                 cmd: "iisreset /force"
-              - name: MyApp
+              - name: MyAppService
                 type: app
-                cmd: "start MyApp.exe"
-          - name: server2
-            ip: 332.10.1.2
-            os: Windows
+                cmd: "sc MyAppService restart"
+          - name: FDIM
+            ip: eurvli153139.xmp.net.intra
+            os: linux
             services:
               - name: tomcat
                 type: app
-                startscript: /data/tomcat/bin/startup.sh
-          - name: server3
-            ip: 332.10.1.3
-            os: Linux
+                startScript: /data/tomcat_FENERGO/scripts/tomcat.sh force_stop
+              # - name: apache
+              #   type: lb
+              #   startScript: /usr/sbin/apachectl start
+          - name: INT3-DB
+            ip: EURVLID11088.xmp.net.intra
+            os: linux
             services:
-              - name: db
+              - name: loofr407
                 type: db
-                dbtype: oracle
-                tnsalias: orcl
+                dbType: oracle
+                tnsAlias: loofr407
 
-  - name: ECommerceApp
-    environments:
-      - name: production
+      - name: int4
         servers:
-          - name: web-server
-            ip: 192.168.1.10
-            os: Linux
+          - name: IIS-FRONT-2
+            ip: EUROVIT04485.xmp.net.intra
+            os: windows
+            services:
+              - name: IIS
+                type: app
+                cmd: "iisreset /force"
+              - name: MyAppService
+                type: app
+                cmd: "sc MyAppService2 restart"
+          - name: FDIM
+            ip: eurvli153139.xmp.net.intra
+            os: linux
+            services:
+              - name: tomcat
+                type: app
+                startScript: /data/tomcat_FENERGO/scripts/tomcat.sh force_stop
+              # - name: apache
+              #   type: lb
+              #   startScript: /usr/sbin/apachectl start
+          - name: INT3-DB
+            ip: EURVLID11088.xmp.net.intra
+            os: linux
+            services:
+              - name: loofr407
+                type: db
+                dbType: oracle
+                tnsAlias: loofr407
+
+  - name: RiskAnalyzer
+    environments:
+      - name: qa
+        servers:
+          - name: QA-API-SERVER
+            ip: QAAPI10045.xmp.net.intra
+            os: windows
+            services:
+              - name: RiskService
+                type: app
+                cmd: "sc restart RiskService"
+          - name: QA-DB
+            ip: QADB20456.xmp.net.intra
+            os: linux
+            services:
+              - name: riskdb
+                type: db
+                dbType: postgres
+                tnsAlias: riskdb
+
+  - name: TradeFlow
+    environments:
+      - name: prod
+        servers:
+          - name: PROD-WEB-1
+            ip: PRODWEB9988.xmp.net.intra
+            os: windows
             services:
               - name: nginx
-                type: app
-                cmd: "systemctl restart nginx"
-              - name: nodejs
-                type: app
-                cmd: "pm2 restart all"
-          - name: db-server
-            ip: 192.168.1.11
-            os: Linux
+                type: lb
+                cmd: "net stop nginx && net start nginx"
+          - name: PROD-APP-1
+            ip: PRODAPP9911.xmp.net.intra
+            os: linux
             services:
-              - name: postgres
+              - name: trade-core
+                type: app
+                startScript: /opt/tradeflow/start-core.sh
+          - name: PROD-DB
+            ip: PRODDB8801.xmp.net.intra
+            os: linux
+            services:
+              - name: tradedb
                 type: db
-                dbtype: postgresql
-                tnsalias: ecommerce_db
-      - name: staging
-        servers:
-          - name: staging-server
-            ip: 192.168.2.10
-            os: Linux
-            services:
-              - name: docker
-                type: app
-                cmd: "docker-compose up -d"
-
-  - name: MobileBackend
-    environments:
-      - name: production
-        servers:
-          - name: api-server
-            ip: 10.0.1.5
-            os: Linux
-            services:
-              - name: spring-boot
-                type: app
-                startscript: /opt/backend/start.sh
-              - name: redis
-                type: cache
-                cmd: "redis-cli ping"
-          - name: mongo-server
-            ip: 10.0.1.6
-            os: Linux
-            services:
-              - name: mongodb
-                type: db
-                dbtype: mongodb
-                tnsalias: mobile_db
-      - name: development
-        servers:
-          - name: dev-server
-            ip: 10.0.2.5
-            os: macOS
-            services:
-              - name: local-mongo
-                type: db
-                dbtype: mongodb
-                tnsalias: dev_db
+                dbType: mysql
+                tnsAlias: tradedb
