@@ -1,31 +1,44 @@
 package com.example.dashboard.service;
 
 import com.example.dashboard.model.Application;
-import com.example.dashboard.model.ApplicationList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 import org.yaml.snakeyaml.TypeDescription;
 import java.io.InputStream;
-import java.util.List;
 
 @Service
 public class YamlParserService {
     
-    public List<Application> parseYaml() {
+    private static final Logger logger = LoggerFactory.getLogger(YamlParserService.class);
+    
+    public Application parseApplicationYaml(String fileName) {
+        logger.info("🔄 Starting to parse YAML file: {}", fileName);
+        long startTime = System.currentTimeMillis();
+        
         try {
-            Constructor constructor = new Constructor(ApplicationList.class);
-            TypeDescription applicationListType = new TypeDescription(ApplicationList.class);
-            applicationListType.addPropertyParameters("applications", Application.class);
-            constructor.addTypeDescription(applicationListType);
+            Constructor constructor = new Constructor(Application.class);
+            TypeDescription applicationType = new TypeDescription(Application.class);
+            applicationType.addPropertyParameters("environments", com.example.dashboard.model.Environment.class);
+            constructor.addTypeDescription(applicationType);
             
             Yaml yaml = new Yaml(constructor);
-            InputStream inputStream = new ClassPathResource("example.yaml").getInputStream();
-            ApplicationList applicationList = yaml.load(inputStream);
-            return applicationList.getApplications();
+            InputStream inputStream = new ClassPathResource("applications/" + fileName).getInputStream();
+            Application application = yaml.load(inputStream);
+            
+            long endTime = System.currentTimeMillis();
+            logger.info("✅ Successfully parsed YAML file: {} in {}ms", fileName, (endTime - startTime));
+            logger.info("📊 Application '{}' loaded with {} environments", 
+                       application.getName(), 
+                       application.getEnvironments() != null ? application.getEnvironments().size() : 0);
+            
+            return application;
         } catch (Exception e) {
-            throw new RuntimeException("Error parsing YAML file", e);
+            logger.error("❌ Error parsing YAML file: {}", fileName, e);
+            throw new RuntimeException("Error parsing application YAML file: " + fileName, e);
         }
     }
 } 

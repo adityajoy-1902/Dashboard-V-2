@@ -1,0 +1,10 @@
+applications:
+  - name: Fenergo
+    file: fenergo.yaml
+    displayName: Fenergo Application
+  - name: RiskAnalyzer
+    file: risk-analyzer.yaml
+    displayName: Risk Analyzer
+  - name: TradeFlow
+    file: trade-flow.yaml
+    displayName: Trade Flow 

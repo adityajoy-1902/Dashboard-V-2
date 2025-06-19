@@ -1,0 +1,19 @@
+name: RiskAnalyzer
+environments:
+  - name: qa
+    servers:
+      - name: QA-API-SERVER
+        ip: QAAPI10045.xmp.net.intra
+        os: windows
+        services:
+          - name: RiskService
+            type: app
+            cmd: "sc restart RiskService"
+      - name: QA-DB
+        ip: QADB20456.xmp.net.intra
+        os: linux
+        services:
+          - name: riskdb
+            type: db
+            dbType: postgres
+            tnsAlias: riskdb 
