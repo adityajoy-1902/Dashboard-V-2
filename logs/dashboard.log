@@ -1,0 +1,101 @@
+2025-06-21 16:54:38.298 [main] INFO  c.e.dashboard.DashboardApplication - Starting DashboardApplication using Java 17.0.15 on 192.168.1.2 with PID 45240 (/Users/aditya/Desktop/java/Dashboard/target/classes started by aditya in /Users/aditya/Desktop/java/Dashboard)
+2025-06-21 16:54:38.299 [main] INFO  c.e.dashboard.DashboardApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-21 16:54:38.573 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-06-21 16:54:38.577 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-06-21 16:54:38.577 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-21 16:54:38.577 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.63]
+2025-06-21 16:54:38.609 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-21 16:54:38.609 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 294 ms
+2025-06-21 16:54:38.706 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-06-21 16:54:38.714 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-21 16:54:38.718 [main] INFO  c.e.dashboard.DashboardApplication - Started DashboardApplication in 0.566 seconds (JVM running for 0.672)
+2025-06-21 16:55:16.881 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-21 16:55:16.881 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-21 16:55:16.882 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-06-21 16:55:16.892 [http-nio-8080-exec-1] INFO  c.e.d.controller.DashboardController - 🌐 Dashboard page requested - loading application list
+2025-06-21 16:55:16.893 [http-nio-8080-exec-1] INFO  c.e.d.s.ApplicationConfigService - 🔄 Loading master application configuration from application-list.yaml
+2025-06-21 16:55:16.909 [http-nio-8080-exec-1] INFO  c.e.d.s.ApplicationConfigService - ✅ Successfully loaded master configuration in 16ms
+2025-06-21 16:55:16.911 [http-nio-8080-exec-1] INFO  c.e.d.s.ApplicationConfigService - 📋 Found 3 applications: Fenergo, RiskAnalyzer, TradeFlow
+2025-06-21 16:55:16.911 [http-nio-8080-exec-1] INFO  c.e.d.controller.DashboardController - 📄 Dashboard page rendered with 3 applications
+2025-06-21 16:55:19.254 [http-nio-8080-exec-3] INFO  c.e.d.controller.DashboardController - 🔍 API request received for application: Fenergo
+2025-06-21 16:55:19.255 [http-nio-8080-exec-3] INFO  c.e.d.s.ApplicationConfigService - 🔄 Loading master application configuration from application-list.yaml
+2025-06-21 16:55:19.257 [http-nio-8080-exec-3] INFO  c.e.d.s.ApplicationConfigService - ✅ Successfully loaded master configuration in 2ms
+2025-06-21 16:55:19.258 [http-nio-8080-exec-3] INFO  c.e.d.s.ApplicationConfigService - 📋 Found 3 applications: Fenergo, RiskAnalyzer, TradeFlow
+2025-06-21 16:55:19.258 [http-nio-8080-exec-3] INFO  c.e.d.controller.DashboardController - 📁 Found application metadata: Fenergo -> fenergo.yaml
+2025-06-21 16:55:19.258 [http-nio-8080-exec-3] INFO  c.e.d.service.YamlParserService - 🔄 Starting to parse YAML file: fenergo.yaml
+2025-06-21 16:55:19.270 [http-nio-8080-exec-3] INFO  c.e.d.service.YamlParserService - ✅ Successfully parsed YAML file: fenergo.yaml in 12ms
+2025-06-21 16:55:19.270 [http-nio-8080-exec-3] INFO  c.e.d.service.YamlParserService - 📊 Application 'Fenergo' loaded with 2 environments
+2025-06-21 16:55:19.271 [http-nio-8080-exec-3] INFO  c.e.d.controller.DashboardController - ✅ API response sent for application: Fenergo in 16ms
+2025-06-21 16:55:23.230 [http-nio-8080-exec-4] INFO  c.e.d.controller.DashboardController - 🔍 API request received for application: RiskAnalyzer
+2025-06-21 16:55:23.231 [http-nio-8080-exec-4] INFO  c.e.d.s.ApplicationConfigService - 🔄 Loading master application configuration from application-list.yaml
+2025-06-21 16:55:23.234 [http-nio-8080-exec-4] INFO  c.e.d.s.ApplicationConfigService - ✅ Successfully loaded master configuration in 3ms
+2025-06-21 16:55:23.234 [http-nio-8080-exec-4] INFO  c.e.d.s.ApplicationConfigService - 📋 Found 3 applications: Fenergo, RiskAnalyzer, TradeFlow
+2025-06-21 16:55:23.234 [http-nio-8080-exec-4] INFO  c.e.d.controller.DashboardController - 📁 Found application metadata: RiskAnalyzer -> risk-analyzer.yaml
+2025-06-21 16:55:23.235 [http-nio-8080-exec-4] INFO  c.e.d.service.YamlParserService - 🔄 Starting to parse YAML file: risk-analyzer.yaml
+2025-06-21 16:55:23.240 [http-nio-8080-exec-4] INFO  c.e.d.service.YamlParserService - ✅ Successfully parsed YAML file: risk-analyzer.yaml in 5ms
+2025-06-21 16:55:23.241 [http-nio-8080-exec-4] INFO  c.e.d.service.YamlParserService - 📊 Application 'RiskAnalyzer' loaded with 1 environments
+2025-06-21 16:55:23.241 [http-nio-8080-exec-4] INFO  c.e.d.controller.DashboardController - ✅ API response sent for application: RiskAnalyzer in 10ms
+2025-06-21 16:56:43.152 [http-nio-8080-exec-7] INFO  c.e.d.controller.DashboardController - 🔍 API request received for application: TradeFlow
+2025-06-21 16:56:43.153 [http-nio-8080-exec-7] INFO  c.e.d.s.ApplicationConfigService - 🔄 Loading master application configuration from application-list.yaml
+2025-06-21 16:56:43.155 [http-nio-8080-exec-7] INFO  c.e.d.s.ApplicationConfigService - ✅ Successfully loaded master configuration in 2ms
+2025-06-21 16:56:43.155 [http-nio-8080-exec-7] INFO  c.e.d.s.ApplicationConfigService - 📋 Found 3 applications: Fenergo, RiskAnalyzer, TradeFlow
+2025-06-21 16:56:43.155 [http-nio-8080-exec-7] INFO  c.e.d.controller.DashboardController - 📁 Found application metadata: TradeFlow -> trade-flow.yaml
+2025-06-21 16:56:43.156 [http-nio-8080-exec-7] INFO  c.e.d.service.YamlParserService - 🔄 Starting to parse YAML file: trade-flow.yaml
+2025-06-21 16:56:43.159 [http-nio-8080-exec-7] INFO  c.e.d.service.YamlParserService - ✅ Successfully parsed YAML file: trade-flow.yaml in 3ms
+2025-06-21 16:56:43.159 [http-nio-8080-exec-7] INFO  c.e.d.service.YamlParserService - 📊 Application 'TradeFlow' loaded with 1 environments
+2025-06-21 16:56:43.159 [http-nio-8080-exec-7] INFO  c.e.d.controller.DashboardController - ✅ API response sent for application: TradeFlow in 6ms
+2025-06-21 16:57:46.529 [http-nio-8080-exec-9] INFO  c.e.d.controller.DashboardController - 🌐 Dashboard page requested - loading application list
+2025-06-21 16:57:46.530 [http-nio-8080-exec-9] INFO  c.e.d.s.ApplicationConfigService - 🔄 Loading master application configuration from application-list.yaml
+2025-06-21 16:57:46.533 [http-nio-8080-exec-9] INFO  c.e.d.s.ApplicationConfigService - ✅ Successfully loaded master configuration in 3ms
+2025-06-21 16:57:46.534 [http-nio-8080-exec-9] INFO  c.e.d.s.ApplicationConfigService - 📋 Found 3 applications: Fenergo, RiskAnalyzer, TradeFlow
+2025-06-21 16:57:46.534 [http-nio-8080-exec-9] INFO  c.e.d.controller.DashboardController - 📄 Dashboard page rendered with 3 applications
+2025-06-21 16:58:03.572 [http-nio-8080-exec-10] INFO  c.e.d.controller.DashboardController - 🔍 API request received for application: Fenergo
+2025-06-21 16:58:03.572 [http-nio-8080-exec-10] INFO  c.e.d.s.ApplicationConfigService - 🔄 Loading master application configuration from application-list.yaml
+2025-06-21 16:58:03.574 [http-nio-8080-exec-10] INFO  c.e.d.s.ApplicationConfigService - ✅ Successfully loaded master configuration in 2ms
+2025-06-21 16:58:03.575 [http-nio-8080-exec-10] INFO  c.e.d.s.ApplicationConfigService - 📋 Found 3 applications: Fenergo, RiskAnalyzer, TradeFlow
+2025-06-21 16:58:03.575 [http-nio-8080-exec-10] INFO  c.e.d.controller.DashboardController - 📁 Found application metadata: Fenergo -> fenergo.yaml
+2025-06-21 16:58:03.575 [http-nio-8080-exec-10] INFO  c.e.d.service.YamlParserService - 🔄 Starting to parse YAML file: fenergo.yaml
+2025-06-21 16:58:03.579 [http-nio-8080-exec-10] INFO  c.e.d.service.YamlParserService - ✅ Successfully parsed YAML file: fenergo.yaml in 4ms
+2025-06-21 16:58:03.579 [http-nio-8080-exec-10] INFO  c.e.d.service.YamlParserService - 📊 Application 'Fenergo' loaded with 2 environments
+2025-06-21 16:58:03.579 [http-nio-8080-exec-10] INFO  c.e.d.controller.DashboardController - ✅ API response sent for application: Fenergo in 7ms
+2025-06-21 16:58:40.090 [http-nio-8080-exec-1] INFO  c.e.d.controller.DashboardController - 🔍 API request received for application: TradeFlow
+2025-06-21 16:58:40.091 [http-nio-8080-exec-1] INFO  c.e.d.s.ApplicationConfigService - 🔄 Loading master application configuration from application-list.yaml
+2025-06-21 16:58:40.094 [http-nio-8080-exec-1] INFO  c.e.d.s.ApplicationConfigService - ✅ Successfully loaded master configuration in 2ms
+2025-06-21 16:58:40.094 [http-nio-8080-exec-1] INFO  c.e.d.s.ApplicationConfigService - 📋 Found 3 applications: Fenergo, RiskAnalyzer, TradeFlow
+2025-06-21 16:58:40.095 [http-nio-8080-exec-1] INFO  c.e.d.controller.DashboardController - 📁 Found application metadata: TradeFlow -> trade-flow.yaml
+2025-06-21 16:58:40.095 [http-nio-8080-exec-1] INFO  c.e.d.service.YamlParserService - 🔄 Starting to parse YAML file: trade-flow.yaml
+2025-06-21 16:58:40.098 [http-nio-8080-exec-1] INFO  c.e.d.service.YamlParserService - ✅ Successfully parsed YAML file: trade-flow.yaml in 3ms
+2025-06-21 16:58:40.099 [http-nio-8080-exec-1] INFO  c.e.d.service.YamlParserService - 📊 Application 'TradeFlow' loaded with 1 environments
+2025-06-21 16:58:40.099 [http-nio-8080-exec-1] INFO  c.e.d.controller.DashboardController - ✅ API response sent for application: TradeFlow in 8ms
+2025-06-21 17:12:48.862 [http-nio-8080-exec-4] INFO  c.e.d.controller.DashboardController - 🔍 API request received for application: RiskAnalyzer
+2025-06-21 17:12:48.863 [http-nio-8080-exec-4] INFO  c.e.d.s.ApplicationConfigService - 🔄 Loading master application configuration from application-list.yaml
+2025-06-21 17:12:48.865 [http-nio-8080-exec-4] INFO  c.e.d.s.ApplicationConfigService - ✅ Successfully loaded master configuration in 2ms
+2025-06-21 17:12:48.865 [http-nio-8080-exec-4] INFO  c.e.d.s.ApplicationConfigService - 📋 Found 3 applications: Fenergo, RiskAnalyzer, TradeFlow
+2025-06-21 17:12:48.866 [http-nio-8080-exec-4] INFO  c.e.d.controller.DashboardController - 📁 Found application metadata: RiskAnalyzer -> risk-analyzer.yaml
+2025-06-21 17:12:48.866 [http-nio-8080-exec-4] INFO  c.e.d.service.YamlParserService - 🔄 Starting to parse YAML file: risk-analyzer.yaml
+2025-06-21 17:12:48.868 [http-nio-8080-exec-4] INFO  c.e.d.service.YamlParserService - ✅ Successfully parsed YAML file: risk-analyzer.yaml in 2ms
+2025-06-21 17:12:48.869 [http-nio-8080-exec-4] INFO  c.e.d.service.YamlParserService - 📊 Application 'RiskAnalyzer' loaded with 1 environments
+2025-06-21 17:12:48.870 [http-nio-8080-exec-4] INFO  c.e.d.controller.DashboardController - ✅ API response sent for application: RiskAnalyzer in 7ms
+2025-06-21 17:13:19.922 [http-nio-8080-exec-5] INFO  c.e.d.controller.DashboardController - 🌐 Dashboard page requested - loading application list
+2025-06-21 17:13:19.922 [http-nio-8080-exec-5] INFO  c.e.d.s.ApplicationConfigService - 🔄 Loading master application configuration from application-list.yaml
+2025-06-21 17:13:19.924 [http-nio-8080-exec-5] INFO  c.e.d.s.ApplicationConfigService - ✅ Successfully loaded master configuration in 2ms
+2025-06-21 17:13:19.924 [http-nio-8080-exec-5] INFO  c.e.d.s.ApplicationConfigService - 📋 Found 3 applications: Fenergo, RiskAnalyzer, TradeFlow
+2025-06-21 17:13:19.925 [http-nio-8080-exec-5] INFO  c.e.d.controller.DashboardController - 📄 Dashboard page rendered with 3 applications
+2025-06-21 17:13:21.329 [http-nio-8080-exec-6] INFO  c.e.d.controller.DashboardController - 🔍 API request received for application: RiskAnalyzer
+2025-06-21 17:13:21.330 [http-nio-8080-exec-6] INFO  c.e.d.s.ApplicationConfigService - 🔄 Loading master application configuration from application-list.yaml
+2025-06-21 17:13:21.332 [http-nio-8080-exec-6] INFO  c.e.d.s.ApplicationConfigService - ✅ Successfully loaded master configuration in 1ms
+2025-06-21 17:13:21.333 [http-nio-8080-exec-6] INFO  c.e.d.s.ApplicationConfigService - 📋 Found 3 applications: Fenergo, RiskAnalyzer, TradeFlow
+2025-06-21 17:13:21.333 [http-nio-8080-exec-6] INFO  c.e.d.controller.DashboardController - 📁 Found application metadata: RiskAnalyzer -> risk-analyzer.yaml
+2025-06-21 17:13:21.333 [http-nio-8080-exec-6] INFO  c.e.d.service.YamlParserService - 🔄 Starting to parse YAML file: risk-analyzer.yaml
+2025-06-21 17:13:21.335 [http-nio-8080-exec-6] INFO  c.e.d.service.YamlParserService - ✅ Successfully parsed YAML file: risk-analyzer.yaml in 1ms
+2025-06-21 17:13:21.335 [http-nio-8080-exec-6] INFO  c.e.d.service.YamlParserService - 📊 Application 'RiskAnalyzer' loaded with 1 environments
+2025-06-21 17:13:21.336 [http-nio-8080-exec-6] INFO  c.e.d.controller.DashboardController - ✅ API response sent for application: RiskAnalyzer in 6ms
+2025-06-21 17:13:24.163 [http-nio-8080-exec-7] INFO  c.e.d.controller.DashboardController - 🔍 API request received for application: Fenergo
+2025-06-21 17:13:24.163 [http-nio-8080-exec-7] INFO  c.e.d.s.ApplicationConfigService - 🔄 Loading master application configuration from application-list.yaml
+2025-06-21 17:13:24.164 [http-nio-8080-exec-7] INFO  c.e.d.s.ApplicationConfigService - ✅ Successfully loaded master configuration in 1ms
+2025-06-21 17:13:24.164 [http-nio-8080-exec-7] INFO  c.e.d.s.ApplicationConfigService - 📋 Found 3 applications: Fenergo, RiskAnalyzer, TradeFlow
+2025-06-21 17:13:24.164 [http-nio-8080-exec-7] INFO  c.e.d.controller.DashboardController - 📁 Found application metadata: Fenergo -> fenergo.yaml
+2025-06-21 17:13:24.164 [http-nio-8080-exec-7] INFO  c.e.d.service.YamlParserService - 🔄 Starting to parse YAML file: fenergo.yaml
+2025-06-21 17:13:24.166 [http-nio-8080-exec-7] INFO  c.e.d.service.YamlParserService - ✅ Successfully parsed YAML file: fenergo.yaml in 2ms
+2025-06-21 17:13:24.166 [http-nio-8080-exec-7] INFO  c.e.d.service.YamlParserService - 📊 Application 'Fenergo' loaded with 2 environments
+2025-06-21 17:13:24.166 [http-nio-8080-exec-7] INFO  c.e.d.controller.DashboardController - ✅ API response sent for application: Fenergo in 3ms
