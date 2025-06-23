@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 import org.yaml.snakeyaml.TypeDescription;
+import org.yaml.snakeyaml.LoaderOptions;
 import java.io.InputStream;
 import java.util.List;
 
@@ -22,7 +23,8 @@ public class ApplicationConfigService {
         long startTime = System.currentTimeMillis();
         
         try {
-            Constructor constructor = new Constructor(ApplicationConfig.class);
+            LoaderOptions options = new LoaderOptions();
+            Constructor constructor = new Constructor(ApplicationConfig.class, options);
             TypeDescription applicationConfigType = new TypeDescription(ApplicationConfig.class);
             applicationConfigType.addPropertyParameters("applications", ApplicationMetadata.class);
             constructor.addTypeDescription(applicationConfigType);

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 import org.yaml.snakeyaml.TypeDescription;
+import org.yaml.snakeyaml.LoaderOptions;
 import java.io.InputStream;
 
 @Service
@@ -20,7 +21,8 @@ public class YamlParserService {
         long startTime = System.currentTimeMillis();
         
         try {
-            Constructor constructor = new Constructor(Application.class);
+            LoaderOptions options = new LoaderOptions();
+            Constructor constructor = new Constructor(Application.class, options);
             TypeDescription applicationType = new TypeDescription(Application.class);
             applicationType.addPropertyParameters("environments", com.example.dashboard.model.Environment.class);
             constructor.addTypeDescription(applicationType);
